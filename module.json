@@ -1,0 +1,51 @@
+{
+  "id": "pf2e-relic-rarity",
+  "title": "PF2e Relic Rarity",
+  "description": "Enhances Pathfinder 2e item rarity with configurable colors, icon effects, presentation sounds, loot beams, GM item presentation, Aeon Stone armor sockets, and an equipment-power rarity calculator based on runes, special materials, socketed stones, and the item's base PF2e level.",
+  "version": "2.2.0",
+  "authors": [
+    {
+      "name": "Quentin Petit",
+      "url": "https://github.com/yfgi21"
+    }
+  ],
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14",
+    "maximum": "14"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "pf2e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "8.0.0",
+          "verified": "8.1.2"
+        }
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/pf2e-relic-rarity.js"
+  ],
+  "styles": [
+    "styles/pf2e-relic-rarity.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "socket": true,
+  "url": "https://github.com/yfgi21/pf2e-relic-rarity",
+  "manifest": "https://raw.githubusercontent.com/yfgi21/pf2e-relic-rarity/main/module.json",
+  "download": "https://raw.githubusercontent.com/yfgi21/pf2e-relic-rarity/main/dist/pf2e-relic-rarity-v2.2.0.zip"
+}

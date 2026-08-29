@@ -1,0 +1,33 @@
+name: Release Foundry Module
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build module ZIP
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          mkdir -p build/pf2e-relic-rarity
+          cp module.json README.md CHANGELOG.md build/pf2e-relic-rarity/
+          cp -R scripts styles lang assets build/pf2e-relic-rarity/
+          (cd build && zip -r "../pf2e-relic-rarity-v${VERSION}.zip" pf2e-relic-rarity)
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          gh release create "$GITHUB_REF_NAME" \
+            "pf2e-relic-rarity-v${VERSION}.zip" \
+            module.json \
+            --title "PF2e Relic Rarity ${GITHUB_REF_NAME}" \
+            --generate-notes
